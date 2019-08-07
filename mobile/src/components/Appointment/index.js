@@ -1,8 +1,10 @@
 import React, { useMemo, useEffect } from 'react';
-import { parseISO, formatRelative, format } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import Config from 'react-native-config';
 
 import { Container, Left, Avatar, Info, Name, Time } from './styles';
 
@@ -35,7 +37,10 @@ function Appointment({ data: appointment, onCancel }) {
         <Avatar
           source={{
             uri: appointment.provider.avatar
-              ? appointment.provider.avatar.url.replace('localhost', '10.0.3.2')
+              ? appointment.provider.avatar.url.replace(
+                  'localhost',
+                  Config.API_URL
+                )
               : `https://api.adorable.io/avatar/50/${appointment.provider.name}.png`,
           }}
         />
