@@ -1,4 +1,4 @@
-/node_modules
-/tmp/uploads
+node_modules
+tmp/uploads
 .env
 yarn-error.log*
