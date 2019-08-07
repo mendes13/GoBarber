@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import Config from 'react-native-config';
 import api from '~/services/api';
 
 import Background from '~/components/Background';
@@ -36,7 +37,7 @@ export default function SelectProvider({ navigation }) {
               <Avatar
                 source={{
                   uri: provider.avatar
-                    ? provider.avatar.url.replace('localhost', '10.0.3.2')
+                    ? provider.avatar.url.replace('localhost', Config.API_URL)
                     : `https://api.adorable.io/avatar/50/${provider.name}.png`,
                 }}
               />

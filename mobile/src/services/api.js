@@ -1,7 +1,8 @@
 import axios from 'axios';
+import Config from 'react-native-config';
 
 const api = axios.create({
-  baseURL: 'http://10.0.3.2:5000',
+  baseURL: `http://${Config.API_URL}:5000`,
 });
 
 export default api;
