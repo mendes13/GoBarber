@@ -39,7 +39,7 @@ function SignUp() {
         />
 
         <button type="submit">Criar Conta</button>
-        <Link to="/register"> Já tenho uma conta </Link>
+        <Link to="/"> Já tenho uma conta </Link>
       </Form>
     </>
   );
