@@ -26,11 +26,6 @@ function Appointment({ data: appointment, onCancel }) {
     );
   }, [appointment.date]);
 
-  useEffect(() => {
-    console.tron.log(appointment.date);
-    console.tron.log(dateParsed);
-  }, [appointment.date, dateParsed]);
-
   return (
     <Container past={appointment.past}>
       <Left>

@@ -4,6 +4,7 @@ import { formatRelative, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import Config from 'react-native-config';
 import api from '~/services/api';
 
 import Background from '~/components/Background';
@@ -14,16 +15,13 @@ export default function Confirm({ navigation }) {
   const provider = navigation.getParam('provider');
   const time = navigation.getParam('time');
 
-  console.tron.log(time);
-  console.tron.log(parseISO(time));
-
   const dateFormatted = useMemo(
     () => formatRelative(parseISO(time), new Date(), { locale: pt }),
     [time]
   );
 
   async function handleAddAppointment() {
-    await api.post('appointments', {
+    const response = await api.post('appointments', {
       provider_id: provider.id,
       date: time,
     });
@@ -37,7 +35,7 @@ export default function Confirm({ navigation }) {
         <Avatar
           source={{
             uri: provider.avatar
-              ? provider.avatar.url.replace('localhost', '10.0.3.2')
+              ? provider.avatar.url.replace('localhost', Config.API_URL)
               : `https://api.adorable.io/avatar/50/${provider.name}.png`,
           }}
         />
